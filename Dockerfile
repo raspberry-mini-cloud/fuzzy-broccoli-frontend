@@ -1,13 +1,13 @@
-FROM node:18-alpine
+FROM node:20.17-alpine
 
-WORKDIR /fuzzy-broccoli-frontend/
+WORKDIR /app/
+
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 
 EXPOSE 3000
 
-RUN npm install
-
 CMD ["npm", "start"]
-
-
