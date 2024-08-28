@@ -6,7 +6,7 @@ function GetAlbums() {
 
   // Create the request object, which will be a RequestInfo type.
   // Here, we will pass in the URL as well as the options object as parameters.
-  const request: RequestInfo = new Request("http://127.0.0.1:5000/albums", {
+  const request: RequestInfo = new Request("http://10.40.125.129/albums", {
     method: "GET",
     headers: headers,
   });
