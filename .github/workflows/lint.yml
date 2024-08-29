@@ -1,16 +1,27 @@
-name: Lint
+name: Lint Codebase
 
-on: 
-  push: 
-    branches: [master, main]
+on:
+  push:
+    branches: [main, master]
   pull_request:
-    branches: [master, main]
+    branches: [main, master]
 
 jobs:
-  eslint:
-    runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          files: src/
+          node-version: '20' # or the node version your project uses
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npx eslint '**/*.ts'
