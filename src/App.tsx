@@ -12,7 +12,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <div>
-          <button onClick={() => GetAlbums()}> Click me!!! </button>
+          <button onClick={() => GetAlbums()}> Click me? </button>
         </div>
         <a
           className="App-link"
